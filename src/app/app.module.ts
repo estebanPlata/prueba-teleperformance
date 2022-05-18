@@ -9,8 +9,7 @@ import { MainComponent } from './components/main/main.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    MainComponent
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
