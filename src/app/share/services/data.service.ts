@@ -10,5 +10,5 @@ export class DataService {
   getData() {/* metodo get para obtener la data*/
     return this.http.get(this.endPoint);
   }
-
 }
+
