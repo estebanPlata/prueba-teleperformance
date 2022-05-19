@@ -19,11 +19,12 @@ export class MainComponent implements OnInit {
   }
   getData(){
     this.dataService.getData().subscribe((res)=>{
-      this.dataUser = res
+      Object.entries(res).forEach(([key, value]) => {
+        console.log(value)
+        this.dataUser = value
+      });
+
       })
   }
-  search(){
-    this.dataService.getDataName(this.name).subscribe((res)=>{
-    })
-  }
+
 }
