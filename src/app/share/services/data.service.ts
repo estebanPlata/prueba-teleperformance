@@ -10,5 +10,9 @@ export class DataService {
   getData() {/* metodo get para obtener la data*/
     return this.http.get(this.endPoint);
   }
+  getDataName(login:string){/* metodo get para obtener data por nombre */
+    return this.http.get(`${this.endPoint}/${login}`)
+
+    }
 }
 

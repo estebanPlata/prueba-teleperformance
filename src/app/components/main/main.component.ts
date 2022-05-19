@@ -7,7 +7,10 @@ import { DataService } from 'src/app/share/services/data.service';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
-  data:any;
+  dataUser:any;
+  login:string = '';
+  name:string = '';
+  userSearch:any;
 
   constructor(private dataService: DataService) { }
 
@@ -16,7 +19,11 @@ export class MainComponent implements OnInit {
   }
   getData(){
     this.dataService.getData().subscribe((res)=>{
-      console.log(res);
+      this.dataUser = res
+      })
+  }
+  search(){
+    this.dataService.getDataName(this.name).subscribe((res)=>{
     })
   }
 }

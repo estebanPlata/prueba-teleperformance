@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { ComponentsRoutingModule } from './components-routing.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MainComponent } from './main.component'
+import { MaterialModule } from 'src/app/material.module';
+
 
 
 @NgModule({
@@ -15,6 +17,7 @@ import { MainComponent } from './main.component'
     ComponentsRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    MaterialModule
   ],
   providers: [
 
