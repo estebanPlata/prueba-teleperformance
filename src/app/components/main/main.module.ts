@@ -6,20 +6,24 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MainComponent } from './main.component'
 import { MaterialModule } from 'src/app/material.module';
 import { FilterPipe } from 'src/app/share/pipes/filter.pipe';
+import { ChartsComponent } from '../charts/charts.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 
 
 @NgModule({
   declarations: [
     MainComponent,
-    FilterPipe
+    FilterPipe,
+    ChartsComponent
   ],
   imports: [
     CommonModule,
     ComponentsRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    MaterialModule
+    MaterialModule,
+    NgxChartsModule
   ],
   providers: [
 
