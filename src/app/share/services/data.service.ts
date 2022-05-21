@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { IFollowers } from '../interface/chart.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -9,13 +11,11 @@ export class DataService {
   endPointFollowers:string = 'https://api.github.com/users/Mateus-Brito/followers'/* seguidores */
 
   constructor(private http: HttpClient) {}
-  getData() {/* metodo get para obtener la data*/
+  getData():Observable<any>{/* metodo get para obtener la data*/
     return this.http.get(this.endPoint);
   }
-  getFollowers() {/* metodo get para obtener la data*/
-    return this.http.get(this.endPointFollowers);
+  getFollowers():Observable<IFollowers[]> {/* metodo get para obtener la data*/
+    return this.http.get<IFollowers[]>(this.endPointFollowers);
   }
-
-
 }
 

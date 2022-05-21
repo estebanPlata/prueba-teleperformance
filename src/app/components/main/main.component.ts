@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { DataService } from 'src/app/share/services/data.service';
+
+
 
 @Component({
   selector: 'app-main',
@@ -7,8 +10,10 @@ import { DataService } from 'src/app/share/services/data.service';
   styleUrls: ['./main.component.scss'],
 })
 export class MainComponent implements OnInit {
-  dataUser: any;
-  dataFollowers:any;
+
+  dataUser:any;
+
+
 
   login: string = '';
   name: string = '';
@@ -17,7 +22,7 @@ export class MainComponent implements OnInit {
 
   details: any = {};
 
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
     this.getData();
@@ -25,11 +30,10 @@ export class MainComponent implements OnInit {
   getData() {
     this.dataService.getData().subscribe((res) => {
       Object.entries(res).forEach(([key, value]) => {
-        this.dataUser = value;
+        this.dataUser= value;
       });
     });
   }
-
   showDetails(value: any) {
     this.details = value;
   }

@@ -1,3 +1,4 @@
+
 <div class="container row align-items-center py-2 mx-auto">
   <div class="col-md-6 d-flex align-items-center pl-5 col-12">
     <span class="iconify fs-2" data-icon="bi:list-check"> </span>
@@ -37,16 +38,13 @@
       <button
         mat-flat-button
         color="primary"
-        class="fs-2 btn-1"
+        class="fs-4 btn-1"
         (click)="showDetails(item)"
         data-toggle="modal"
         data-target="#exampleModal"
       >
         Detalles
       </button>
-      <!-- <button mat-flat-button color="primary" class="fs-2 btn-2"[hidden]="btn1" (click)="showDetails(indice,false)">
-          mostrar menos
-        </button> -->
     </mat-card-actions>
 
   </mat-card>
@@ -64,7 +62,7 @@
   <div class="modal-dialog modal-md" role="document">
     <div class="modal-content bg-primary">
       <div class="modal-header">
-        <h4 class="modal-title text-white fs-2" id="exampleModalLabel">{{details.type}}</h4>
+        <h4 class="modal-title text-white fs-2" id="exampleModalLabel">titulo</h4>
         <button
           type="button"
           class="close"
@@ -79,15 +77,22 @@
         <mat-card-header>
           <mat-card-title>{{ details.login }}</mat-card-title>
         </mat-card-header>
-        <img src="{{ details.avatar_url }}" width="75%" class="m-auto " />
+        <img src="{{ details.avatar_url }}"  class="m-auto w-75 rounded-circle" />
         <mat-card-content class="fs-1 mt-3">
           <mat-list>
             <mat-list-item>id: {{details.id}} </mat-list-item>
-            <mat-list-item *ngIf="details.followers_url"> </mat-list-item>
+            <mat-list-item>tipo: {{details.type}} </mat-list-item>
+            <mat-list-item>id: {{details.id}} </mat-list-item>
+            <!-- <mat-list-item *ngIf="details.followers_url"> </mat-list-item> -->
           </mat-list>
-        <app-charts class="w-50 border border-4"></app-charts>
         </mat-card-content>
       </mat-card>
+      <div class="d-flex justify-content-center mb-5" *ngIf="details.followers_url">
+
+       <!--  <app-charts [dataDad]="details.followers_url"></app-charts> -->
+       <app-charts></app-charts>
+
+      </div>
       </div>
     </div>
   </div>
