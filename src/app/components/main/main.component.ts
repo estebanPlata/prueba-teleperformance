@@ -12,6 +12,7 @@ import { DataService } from 'src/app/share/services/data.service';
 export class MainComponent implements OnInit {
 
   dataUser:any;
+  user:any
 
 
 
@@ -36,5 +37,6 @@ export class MainComponent implements OnInit {
   }
   showDetails(value: any) {
     this.details = value;
+    this.user = this.details.followers_url
   }
 }

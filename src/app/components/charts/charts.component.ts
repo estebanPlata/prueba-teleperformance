@@ -9,27 +9,27 @@ import { DataService } from 'src/app/share/services/data.service';
   encapsulation: ViewEncapsulation.None
 })
 export class ChartsComponent implements OnInit {
-  /* @Input() */
-  dataDad:number=2
-
+  @Input() user:any=''
+  userLogin:string = this.user.login
 
   single:IOptions[]=[];
 
   constructor(private dataService:DataService) { }
-
+  ngOnChanges():void{
+    this.getFollwers(this.user.login);/* mandamos el nombre del usuario para aceder a las props del item followers_url */
+  }
   ngOnInit()  {
-      this.getFollwers();
   }
 
-  getFollwers(){
-    this.dataService.getFollowers().subscribe((res=>{
+  getFollwers(value:string){
+    this.dataService.getFollowers(value).subscribe((res=>{
       this.single=[];
-      res.forEach(r=> this.single.push({
-        name:'description',
+      res.forEach(r=> this.single.push({/* pushamos value que es la longitud del array para graficar */
+        name:'seguidores',
         value:this.single.length+1
     }))
       /* this.dataDad = res.length */
-      console.log(this.single)
+      /* console.log(this.user) */
     }))
   }
 

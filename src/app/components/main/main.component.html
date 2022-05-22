@@ -90,7 +90,9 @@
       <div class="d-flex justify-content-center mb-5" *ngIf="details.followers_url">
 
        <!--  <app-charts [dataDad]="details.followers_url"></app-charts> -->
-       <app-charts></app-charts>
+       <app-charts
+       [user]="details"
+       ></app-charts>
 
       </div>
       </div>

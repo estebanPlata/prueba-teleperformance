@@ -8,14 +8,15 @@ import { IFollowers } from '../interface/chart.interface';
 })
 export class DataService {
   endPoint: string = 'https://api.github.com/search/users?q=YOUR_NAME';/* se define variable de donde se van a extraer los datos */
-  endPointFollowers:string = 'https://api.github.com/users/Mateus-Brito/followers'/* seguidores */
+  endPointFollowers:string = 'https://api.github.com/users';/* seguidores */
+
 
   constructor(private http: HttpClient) {}
   getData():Observable<any>{/* metodo get para obtener la data*/
     return this.http.get(this.endPoint);
   }
-  getFollowers():Observable<IFollowers[]> {/* metodo get para obtener la data*/
-    return this.http.get<IFollowers[]>(this.endPointFollowers);
-  }
+  getFollowers(user:string):Observable<IFollowers[]> {/* metodo get para obtener la data*/
+  return this.http.get<IFollowers[]>(`${this.endPointFollowers}/${user}/followers`);
+}
 }
 
