@@ -1,6 +1,6 @@
 # prueba-teleperformance
 Saludos, 
-En este proyecto encontraras el consumo de una api, donde se mostrara algunas propiedades de ellas de forma dinámica 
+En este proyecto encontraras el consumo de una api, donde se mostrara algunas propiedades de forma dinámica 
 
 A continuación, se presentan las tecnologías empleadas y sus versiones:
 Npm 8.5.0
