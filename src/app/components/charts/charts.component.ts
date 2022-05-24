@@ -34,10 +34,11 @@ export class ChartsComponent implements OnInit {
   }
 
 
+
      /*  {
         "name": "Seguidores",
         "value":this.numOne.length
-      }
+      },
       {
         "name": "repositorios",
         "value":67

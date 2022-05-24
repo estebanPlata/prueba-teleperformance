@@ -22,3 +22,7 @@ export interface IOptions{
   name:string;
   value:number | string;
 }
+
+export interface IRepos {
+  name:string
+}

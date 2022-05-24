@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { IRepos} from 'src/app/share/interface/chart.interface';
 import { DataService } from 'src/app/share/services/data.service';
 
 
@@ -13,13 +14,14 @@ export class MainComponent implements OnInit {
 
   dataUser:any;
   user:any
-
-
+  /* repo:any = {}; */
+  repo:IRepos[]=[];
+  subscriptions:IRepos[]=[];
 
   login: string = '';
   name: string = '';
   userSearch: any;
-  show: boolean = false;
+
 
   details: any = {};
 
@@ -37,6 +39,19 @@ export class MainComponent implements OnInit {
   }
   showDetails(value: any) {
     this.details = value;
-    this.user = this.details.followers_url
+    this.getRepos(this.details.login);
+    this.getSuscriptions(this.details.login)
   }
+  getRepos(value:string){
+    this.dataService.getRepos(value).subscribe((res) => {
+      this.repo=[];
+      res.forEach(r=>this.repo.push(r));
+      console.log(this.repo.length)
+ })}
+ getSuscriptions(value:string){
+  this.dataService.getSuscriptions(value).subscribe((res) => {
+    this.subscriptions=[];
+    res.forEach(r=>this.subscriptions.push(r));
+    console.log(this.subscriptions.length)
+})}
 }
